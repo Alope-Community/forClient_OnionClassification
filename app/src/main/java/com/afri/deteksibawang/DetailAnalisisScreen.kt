@@ -25,20 +25,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+// =========================
+// NAVY THEME COLOR
+// =========================
+private val Navy = Color(0xFF0D1B2A)
+private val SoftBg = Color(0xFFF6F8FC)
+private val AccentBlue = Color(0xFF1B4965)
+
 data class AnalysisResult(
-
     val diseaseName: String,
-
     val accuracy: Float,
-
     val date: String,
-
     val symptoms: String,
-
     val cause: String,
-
     val treatment: String,
-
     val imageBitmap: Bitmap?
 )
 
@@ -50,6 +50,7 @@ fun DetailAnalisisScreen(
     onBackClick: () -> Unit = {},
     onConfirm: () -> Unit = {},
 ) {
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -64,63 +65,57 @@ fun DetailAnalisisScreen(
                     IconButton(onClick = onBackClick) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Kembali",
+                            contentDescription = "Back",
                             tint = Color.White
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFFD81B60)
+                    containerColor = Navy
                 )
             )
         }
-    ) { innerPadding ->
+    ) { padding ->
 
         Column(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(padding)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .background(Color(0xFFFDE7ED))
+                .background(SoftBg)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             // =========================
-            // IMAGE SECTION
+            // IMAGE
             // =========================
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(280.dp),
                 shape = RoundedCornerShape(20.dp),
-                elevation = CardDefaults.cardElevation(8.dp)
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                elevation = CardDefaults.cardElevation(6.dp)
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.White),
-                    contentAlignment = Alignment.Center
-                ) {
 
-                    if (result.imageBitmap != null) {
-
-                        Image(
-                            bitmap = result.imageBitmap.asImageBitmap(),
-                            contentDescription = "Gambar Deteksi",
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .clip(RoundedCornerShape(20.dp)),
-                            contentScale = ContentScale.Crop
-                        )
-
-                    } else {
-
+                if (result.imageBitmap != null) {
+                    Image(
+                        bitmap = result.imageBitmap.asImageBitmap(),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
                         Icon(
-                            imageVector = Icons.Default.Search,
+                            Icons.Default.Search,
                             contentDescription = null,
-                            modifier = Modifier.size(64.dp),
-                            tint = Color.Gray
+                            tint = Color.Gray,
+                            modifier = Modifier.size(64.dp)
                         )
                     }
                 }
@@ -141,122 +136,94 @@ fun DetailAnalisisScreen(
                 Column(modifier = Modifier.padding(20.dp)) {
 
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
                     ) {
 
                         Column(modifier = Modifier.weight(1f)) {
 
                             Text(
-                                text = "Hasil Deteksi",
-                                style = MaterialTheme.typography.labelLarge,
-                                color = Color.Gray
+                                "Hasil Deteksi",
+                                color = Color.Gray,
+                                fontSize = 12.sp
                             )
 
                             Text(
-                                text = result.diseaseName,
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.ExtraBold,
-                                color = Color(0xFFD81B60)
-                            )
-                        }
-
-                        Box(contentAlignment = Alignment.Center) {
-
-                            CircularProgressIndicator(
-                                progress = { result.accuracy },
-                                modifier = Modifier.size(60.dp),
-                                color = Color(0xFFD81B60),
-                                strokeWidth = 6.dp,
-                                trackColor = Color(0xFFFDE7ED)
-                            )
-
-                            Text(
-                                text = "${(result.accuracy * 100).toInt()}%",
+                                result.diseaseName,
+                                color = Navy,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFFD81B60)
+                                fontSize = 20.sp
                             )
                         }
-                    }
 
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    HorizontalDivider(color = Color(0xFFFDE7ED))
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-
-                        Icon(
-                            imageVector = Icons.Default.Info,
-                            contentDescription = null,
-                            tint = Color.Gray,
-                            modifier = Modifier.size(16.dp)
-                        )
-
-                        Spacer(modifier = Modifier.width(6.dp))
-
-                        Text(
-                            text = "Deteksi pada: ${result.date}",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.Gray
+                        CircularProgressIndicator(
+                            progress = { result.accuracy },
+                            color = Navy,
+                            trackColor = Color(0xFFE0E7EF),
+                            strokeWidth = 6.dp,
+                            modifier = Modifier.size(60.dp)
                         )
                     }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = "${(result.accuracy * 100).toInt()}%",
+                        color = AccentBlue,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    HorizontalDivider(color = Color(0xFFEAEFF5))
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = "Deteksi pada: ${result.date}",
+                        color = Color.Gray,
+                        fontSize = 12.sp
+                    )
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             // =========================
             // INFO SECTION
             // =========================
-            InfoSection(
-                title = "Gejala",
-                content = result.symptoms,
-                icon = Icons.Default.Search,
-                accentColor = Color(0xFFD81B60)
-            )
+//            InfoSection("Gejala", result.symptoms, Icons.Default.Search, Navy)
+//            InfoSection("Penyebab", result.cause, Icons.Default.BugReport, AccentBlue)
+//            InfoSection("Penanganan", result.treatment, Icons.Default.MedicalServices, Color(0xFF2E7D32))
 
-            InfoSection(
-                title = "Penyebab",
-                content = result.cause,
-                icon = Icons.Default.BugReport,
-                accentColor = Color(0xFFE91E63)
-            )
+            Spacer(modifier = Modifier.height(24.dp))
 
-            InfoSection(
-                title = "Penanganan",
-                content = result.treatment,
-                icon = Icons.Default.MedicalServices,
-                accentColor = Color(0xFF4CAF50)
-            )
+            // =========================
+            // BUTTON
+            // =========================
+//            Button(
+//                onClick = onConfirm,
+//                enabled = !isHistory,
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .height(56.dp),
+//                colors = ButtonDefaults.buttonColors(
+//                    containerColor = Navy
+//                ),
+//                shape = RoundedCornerShape(16.dp)
+//            ) {
+//                Text("Selesai", fontWeight = FontWeight.Bold)
+//            }
 
-            Spacer(modifier = Modifier.height(32.dp))
-
-            Button(
-                enabled = !isHistory,
-                onClick = onConfirm,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFD81B60)
-                )
-            ) {
-                Text(
-                    "Selesai",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
         }
     }
 }
 
+// =========================
+// INFO SECTION
+// =========================
 @Composable
 fun InfoSection(
     title: String,
@@ -264,10 +231,11 @@ fun InfoSection(
     icon: androidx.compose.ui.graphics.vector.ImageVector,
     accentColor: Color
 ) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 6.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(2.dp)
@@ -279,33 +247,32 @@ fun InfoSection(
 
                 Surface(
                     color = accentColor.copy(alpha = 0.1f),
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(10.dp)
                 ) {
                     Icon(
-                        imageVector = icon,
+                        icon,
                         contentDescription = null,
-                        modifier = Modifier
-                            .padding(6.dp)
-                            .size(20.dp),
-                        tint = accentColor
+                        tint = accentColor,
+                        modifier = Modifier.padding(6.dp)
                     )
                 }
 
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(10.dp))
 
                 Text(
-                    text = title,
-                    fontWeight = FontWeight.Bold,
-                    color = accentColor
+                    title,
+                    color = accentColor,
+                    fontWeight = FontWeight.Bold
                 )
             }
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = content,
+                content,
                 color = Color.DarkGray,
-                lineHeight = 22.sp
+                fontSize = 13.sp,
+                lineHeight = 20.sp
             )
         }
     }

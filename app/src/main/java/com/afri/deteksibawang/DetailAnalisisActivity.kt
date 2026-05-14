@@ -41,18 +41,18 @@ class DetailAnalisisActivity : ComponentActivity() {
                             val imagePath =
                                 repository.saveImageToInternalStorage(this, bitmap)
 
-                            val history = HistoryModel(
-                                namaPenyakit = result.diseaseName,
-                                tanggal = SimpleDateFormat(
-                                    "yyyy-MM-dd HH:mm",
-                                    Locale.getDefault()
-                                ).format(Date()),
-                                imageUrl = imagePath,
-                                confidence = result.accuracy
-                            )
+//                            val history = HistoryModel(
+//                                namaPenyakit = result.diseaseName,
+//                                tanggal = SimpleDateFormat(
+//                                    "yyyy-MM-dd HH:mm",
+//                                    Locale.getDefault()
+//                                ).format(Date()),
+//                                imageUrl = imagePath,
+//                                confidence = result.accuracy
+//                            )
 
-                            repository.saveHistory("user_dummy", history)
-                            finish()
+//                            repository.saveHistory("user_dummy", history)
+//                            finish()
                         }
                     }
                 )

@@ -12,18 +12,18 @@ class FirebaseRepository {
 
     private val db = FirebaseFirestore.getInstance()
 
-    fun saveHistory(userId: String, history: HistoryModel) {
-        db.collection("users")
-            .document(userId)
-            .collection("history")
-            .add(history)
-            .addOnSuccessListener {
-                Log.d("FIREBASE", "History berhasil disimpan")
-            }
-            .addOnFailureListener {
-                Log.e("FIREBASE", "History gagal disimpan: ${it.message}")
-            }
-    }
+//    fun saveHistory(userId: String, history: HistoryModel) {
+//        db.collection("users")
+//            .document(userId)
+//            .collection("history")
+//            .add(history)
+//            .addOnSuccessListener {
+//                Log.d("FIREBASE", "History berhasil disimpan")
+//            }
+//            .addOnFailureListener {
+//                Log.e("FIREBASE", "History gagal disimpan: ${it.message}")
+//            }
+//    }
 
     fun deleteHistoryWithLocalImage(
         userId: String,
@@ -102,18 +102,18 @@ class FirebaseRepository {
         return file.absolutePath
     }
 
-    fun getHistory(userId: String, onResult: (List<HistoryModel>) -> Unit) {
-        db.collection("users")
-            .document(userId)
-            .collection("history")
-            .orderBy("tanggal")
-            .get()
-            .addOnSuccessListener { result ->
-                val list = result.toObjects(HistoryModel::class.java)
-                onResult(list)
-            }
-            .addOnFailureListener {
-                Log.e("FIREBASE", "Gagal ambil data: ${it.message}")
-            }
-    }
+//    fun getHistory(userId: String, onResult: (List<HistoryModel>) -> Unit) {
+//        db.collection("users")
+//            .document(userId)
+//            .collection("history")
+//            .orderBy("tanggal")
+//            .get()
+//            .addOnSuccessListener { result ->
+//                val list = result.toObjects(HistoryModel::class.java)
+//                onResult(list)
+//            }
+//            .addOnFailureListener {
+//                Log.e("FIREBASE", "Gagal ambil data: ${it.message}")
+//            }
+//    }
 }

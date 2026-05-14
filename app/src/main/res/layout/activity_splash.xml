@@ -11,14 +11,14 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/logo"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_deteksi_baru"
-        app:shapeAppearanceOverlay="@style/RoundedImageView"
-        android:alpha="0"/>
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:id="@+id/logo"-->
+<!--        android:layout_width="160dp"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:scaleType="centerInside"-->
+<!--        android:src="@drawable/logo_deteksi_baru"-->
+<!--        app:shapeAppearanceOverlay="@style/RoundedImageView"-->
+<!--        android:alpha="0"/>-->
 
     <TextView
         android:id="@+id/txtApp"
@@ -27,7 +27,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-black"
         android:letterSpacing="0.02"
-        android:text="Strawberry Leaf Detection"
+        android:text="Onion Classification"
         android:textColor="#212121"
         android:textSize="24sp"
         android:alpha="0"/>
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:letterSpacing="0.1"
-        android:text="AI DETECTION SYSTEM"
+        android:text="AI CLASSIFICATION SYSTEM"
         android:textColor="#E91E63"
         android:textSize="12sp"
         android:textAllCaps="true"
@@ -50,7 +50,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="Mutia Nursamsiah"
+        android:text="Afri Hytam"
         android:textColor="#BDBDBD"
         android:textSize="12sp"
         android:fontFamily="sans-serif-light"/>

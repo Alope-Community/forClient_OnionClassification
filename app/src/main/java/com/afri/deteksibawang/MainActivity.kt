@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
             val fragment = when (it.itemId) {
                 R.id.nav_home -> home()
-                R.id.nav_info -> info()
-                R.id.nav_history -> History()
+//                R.id.nav_info -> info()
+//                R.id.nav_history -> History()
                 R.id.nav_about -> about()
                 else -> home()
             }

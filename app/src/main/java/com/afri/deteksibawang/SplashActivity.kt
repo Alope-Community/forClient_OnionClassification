@@ -14,11 +14,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val logo = findViewById<ImageView>(R.id.logo)
+//        val logo = findViewById<ImageView>(R.id.logo)
         val text = findViewById<TextView>(R.id.txtApp)
 
         // animasi fade in
-        logo.animate().alpha(1f).setDuration(1500).start()
+//        logo.animate().alpha(1f).setDuration(1500).start()
         text.animate().alpha(1f).setDuration(2000).start()
 
         Handler(Looper.getMainLooper()).postDelayed({

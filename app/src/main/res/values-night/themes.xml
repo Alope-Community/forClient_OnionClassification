@@ -2,22 +2,23 @@
 
     <style name="Base.Theme.DeteksiStrawberry" parent="Theme.Material3.DayNight.NoActionBar">
 
-        <!-- PRIMARY PINK -->
-        <item name="colorPrimary">#E91E63</item>
+        <!-- PRIMARY NAVY -->
+        <item name="colorPrimary">#0D1B2A</item>
         <item name="colorOnPrimary">#FFFFFF</item>
 
-        <!-- SECONDARY (TURUNAN PINK) -->
-        <item name="colorSecondary">#E91E63</item>
+        <!-- SECONDARY -->
+        <item name="colorSecondary">#1B263B</item>
         <item name="colorOnSecondary">#FFFFFF</item>
 
-        <!-- BACKGROUND SOFT -->
-        <item name="android:colorBackground">#FFF0F5</item>
+        <!-- BACKGROUND -->
+        <item name="android:colorBackground">#F6F8FC</item>
 
         <!-- STATUS BAR -->
-        <item name="android:statusBarColor">#E91E63</item>
-
-        <!-- ICON STATUS BAR (PUTIH) -->
+        <item name="android:statusBarColor">#0D1B2A</item>
         <item name="android:windowLightStatusBar">false</item>
+
+        <!-- DISABLE FORCE DARK (SAFE FOR API 24+) -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
 
     </style>
 
