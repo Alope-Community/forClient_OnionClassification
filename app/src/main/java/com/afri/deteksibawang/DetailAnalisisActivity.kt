@@ -1,6 +1,5 @@
-package com.mutia.deteksistrawberry
+package com.afri.deteksibawang
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent

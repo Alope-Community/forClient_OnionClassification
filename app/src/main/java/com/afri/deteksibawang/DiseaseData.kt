@@ -1,4 +1,4 @@
-package com.mutia.deteksistrawberry
+package com.afri.deteksibawang
 
 object DiseaseData {
     fun getInfo(name: String): Triple<String, String, String> {

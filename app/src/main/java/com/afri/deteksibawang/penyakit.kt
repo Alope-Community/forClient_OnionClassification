@@ -1,4 +1,4 @@
-package com.mutia.deteksistrawberry
+package com.afri.deteksibawang
 
 data class Penyakit(
     val nama: String,

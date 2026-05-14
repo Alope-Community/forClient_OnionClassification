@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "689527466759",
-    "project_id": "strawberry-detection-bb1e2",
-    "storage_bucket": "strawberry-detection-bb1e2.firebasestorage.app"
+    "project_id": "onion-detection-bb1e2",
+    "storage_bucket": "onion-detection-bb1e2.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:689527466759:android:3fd5d15f75add2374b73a2",
         "android_client_info": {
-          "package_name": "com.mutia.deteksistrawberry"
+          "package_name": "com.afri.deteksibawang"
         }
       },
       "oauth_client": [],

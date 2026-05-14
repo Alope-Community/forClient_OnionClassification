@@ -1,4 +1,4 @@
-package com.mutia.deteksistrawberry
+package com.afri.deteksibawang
 
 // ✅ WAJIB ADA
 import android.net.Uri

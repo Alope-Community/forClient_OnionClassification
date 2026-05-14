@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mutia.deteksistrawberry"
+    namespace = "com.afri.deteksibawang"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.mutia.deteksistrawberry"
+        applicationId = "com.afri.deteksibawang"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
